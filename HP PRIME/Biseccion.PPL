@@ -1,0 +1,65 @@
+#PYTHON PPLwrapper
+#intervalo
+a = 1
+b = 2
+
+#numero de iteraciones
+iterations = 10 # None es un valor nulo (no te lo han dado)
+cantidadEpsilonica = None
+
+
+# Funcion
+def funcion(X):
+    return X**3 + 4*X**2 - 10
+
+def biseccion(func, a, b, iterations):
+    print("a          b            p            f(a)          f(b)         f(p) ")
+    print("---------------------------------------")
+    
+    if iterations != None and iterations > 0:
+        for i in range(iterations + 1):
+        
+            p = (a + b) / 2
+            f_p = func(p)
+
+            error_relativo = (b - a) / b
+            if error_relativo < 0:
+                error_relativo *= -1 
+            print("%.2f   %.2f     %.3f      %.2f      %.2f     %.3f" % (a, b, p, func(a), func(b), f_p))
+            print("")
+            print("Error relativo: " + str(error_relativo))
+            print("---------------------------------------")
+
+            if(func(a) * f_p < 0):
+                b = p
+            elif(func(b) * f_p < 0):
+                a = p
+    elif cantidadEpsilonica != None and cantidadEpsilonica > 0:
+        i = 0
+        while True:
+            p = (a + b) / 2
+            f_p = func(p)
+            
+            error_relativo = ((b - a) / b)
+            if error_relativo < 0:
+                error_relativo *= -1 
+            print("%.3f  %.3f %.3f %.3f %.3f %.3f" % (a, b, p, func(a), func(b), f_p))
+
+            if(func(a) * f_p < 0):
+                b = p
+            elif(func(b) * f_p < 0):
+                a = p
+            
+            if error_relativo < cantidadEpsilonica:
+                break
+
+            i += 1
+
+biseccion(funcion, a, b, iterations)
+#END
+
+EXPORT Biseccion()
+BEGIN
+   PRINT();
+   PYTHON(PPLwrapper)
+END;
