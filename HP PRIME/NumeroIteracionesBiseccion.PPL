@@ -1,0 +1,21 @@
+#PYTHON PPLwrapper
+import math as MATH
+
+#intervalo
+a = 1
+b = 2
+epsilon = 10**-3  # Criterio de parada
+
+def cantidadIteraciones(a, b, epsilon):
+    iteraciones = round(MATH.log2((b - a) / epsilon))
+    print("La cantidad de iteraciones en biseccion es: " + str(iteraciones))
+
+cantidadIteraciones(a, b, epsilon)
+
+#END
+
+EXPORT numeroIteracionesBiseccion()
+BEGIN
+   PRINT();
+   PYTHON(PPLwrapper);
+END;
