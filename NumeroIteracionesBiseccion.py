@@ -5,7 +5,7 @@ a = 1
 b = 2
 
 # Criterio de parada
-epsilon = 10**-3 
+epsilon = 10**-7 
 
 def cantidadIteraciones(a, b, epsilon):
     iteraciones = round(MATH.log2((b - a) / epsilon))
