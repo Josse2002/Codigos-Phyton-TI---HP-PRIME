@@ -1,11 +1,11 @@
-import math
+import math as MATH
 
 a = 1
 b = 2
 decimales = 3  # Cantidad de decimales a mostrar
 
 def funcion(X):
-    return X - math.tan(X) - 1
+    return X - MATH.sqrt(X+1)
 
 def intervalo_contiene_raiz(func, a, b):
     if func(a) * func(b) < 0:
